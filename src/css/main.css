@@ -8,6 +8,18 @@
     box-sizing: border-box;
 }
 
+/* Accessible focus states */
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+textarea:focus-visible,
+.btn:focus-visible,
+.hamburger:focus-visible {
+    outline: 2px solid #00FF8C;
+    outline-offset: 3px;
+    box-shadow: 0 0 10px rgba(0, 255, 140, 0.6);
+}
+
 /* Terminal Boot Screen */
 .boot-screen {
     position: fixed;
@@ -21,7 +33,7 @@
     align-items: center;
     justify-content: center;
     opacity: 1;
-    transition: opacity 0.5s ease-out;
+    transition: opacity 0.3s ease-out;
 }
 
 .boot-screen.fade-out {
@@ -33,6 +45,7 @@
     max-width: 800px;
     width: 90%;
     padding: 2rem;
+    text-align: center;
 }
 
 .boot-header {
@@ -52,6 +65,7 @@
 
 .boot-terminal {
     margin-bottom: 2rem;
+    text-align: left;
 }
 
 .boot-terminal p {
@@ -258,7 +272,7 @@ nav {
     color: #fff;
     text-decoration: none;
     margin-left: 2rem;
-    transition: color 0.3s;
+    transition: color 0.25s ease;
 }
 
 .nav-links a:hover {
@@ -361,7 +375,7 @@ h1 {
 .terminal-text .link {
     color: #00D9FF;
     text-decoration: none;
-    transition: color 0.3s;
+    transition: color 0.25s ease;
 }
 
 .terminal-text .link:hover {
@@ -382,7 +396,7 @@ h1 {
     text-decoration: none;
     font-family: 'Courier New', monospace;
     font-weight: bold;
-    transition: all 0.3s;
+    transition: background-color 0.25s ease, color 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease;
     border: 1px solid;
 }
 
@@ -395,6 +409,7 @@ h1 {
 .btn-primary:hover {
     background: #00FF8C;
     color: #121212;
+    box-shadow: 0 0 15px rgba(0, 255, 140, 0.3);
 }
 
 .btn-secondary {
@@ -406,6 +421,7 @@ h1 {
 .btn-secondary:hover {
     background: #00D9FF;
     color: #121212;
+    box-shadow: 0 0 15px rgba(0, 217, 255, 0.3);
 }
 
 section {
@@ -475,7 +491,7 @@ h2::after {
 .about-text .link {
     color: #00D9FF;
     text-decoration: none;
-    transition: color 0.3s;
+    transition: color 0.25s ease;
 }
 
 .about-text .link:hover {
@@ -491,11 +507,11 @@ h2::after {
 
 .stat-item {
     text-align: center;
-    padding: 1.5rem;
+    padding: 1.5rem 1rem;
     background: rgba(26, 26, 26, 0.8);
     border: 1px solid rgba(0, 255, 140, 0.3);
     border-radius: 10px;
-    transition: all 0.3s;
+    transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
 }
 
 .stat-item:hover {
@@ -505,10 +521,11 @@ h2::after {
 }
 
 .stat-number {
-    font-size: 2.5rem;
+    font-size: clamp(1.8rem, 2.8vw, 2.5rem);
     color: #00FF8C;
     font-weight: bold;
     margin-bottom: 0.5rem;
+    line-height: 1.2;
 }
 
 .stat-label {
@@ -582,7 +599,7 @@ h2::after {
     color: #00FF8C;
 }
 
-/* Certifications & Awards Section */
+/* Certifications, Training & Simulations Section */
 .certifications-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
@@ -595,7 +612,7 @@ h2::after {
     border: 1px solid rgba(0, 255, 140, 0.3);
     border-radius: 15px;
     padding: 2rem;
-    transition: all 0.3s;
+    transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
     position: relative;
     overflow: hidden;
 }
@@ -609,7 +626,7 @@ h2::after {
     height: 200%;
     background: linear-gradient(45deg, transparent, rgba(0, 255, 140, 0.1), transparent);
     transform: rotate(45deg);
-    transition: all 0.6s;
+    transition: top 0.6s ease, right 0.6s ease;
 }
 
 .cert-card:hover::before {
@@ -689,7 +706,7 @@ h2::after {
     text-decoration: none;
     font-weight: bold;
     font-size: 0.9rem;
-    transition: all 0.3s;
+    transition: color 0.25s ease, transform 0.25s ease;
 }
 
 .cert-link:hover {
@@ -709,7 +726,7 @@ h2::after {
     border: 1px solid rgba(0, 255, 140, 0.3);
     border-radius: 10px;
     padding: 2rem;
-    transition: all 0.3s;
+    transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
     display: flex;
     flex-direction: column;
 }
@@ -717,6 +734,7 @@ h2::after {
 .project-card:hover {
     transform: translateY(-5px);
     box-shadow: 0 0 30px rgba(0, 255, 140, 0.3);
+    border-color: #00FF8C;
     will-change: transform;
 }
 
@@ -736,7 +754,7 @@ h2::after {
     color: #00D9FF;
     text-decoration: none;
     font-weight: bold;
-    transition: color 0.3s;
+    transition: color 0.25s ease;
     margin-top: auto;
 }
 
@@ -744,7 +762,7 @@ h2::after {
     color: #00FF8C;
 }
 
-/* Skills Section — tag/chip style (no progress bars) */
+/* Skills Section — tag/chip style */
 .skills-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
@@ -757,7 +775,7 @@ h2::after {
     border: 1px solid rgba(0, 255, 140, 0.3);
     border-radius: 10px;
     padding: 2rem;
-    transition: all 0.3s;
+    transition: border-color 0.25s ease, box-shadow 0.25s ease;
 }
 
 .skill-category:hover {
@@ -785,7 +803,7 @@ h2::after {
     border-radius: 6px;
     padding: 0.5rem 0.9rem;
     font-size: 0.85rem;
-    transition: all 0.25s;
+    transition: background-color 0.25s ease, border-color 0.25s ease, color 0.25s ease, transform 0.25s ease;
 }
 
 .skill-tag:hover {
@@ -873,70 +891,6 @@ h2::after {
     line-height: 1.6;
 }
 
-.blog-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 2rem;
-    margin-top: 3rem;
-}
-
-.blog-card {
-    background: rgba(26, 26, 26, 0.8);
-    border: 1px solid rgba(0, 255, 140, 0.3);
-    border-radius: 10px;
-    overflow: hidden;
-    transition: all 0.3s;
-}
-
-.blog-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 0 30px rgba(0, 255, 140, 0.3);
-    will-change: transform;
-}
-
-.blog-header {
-    background: linear-gradient(135deg, rgba(0, 255, 140, 0.2), rgba(0, 217, 255, 0.2));
-    padding: 1rem 2rem;
-    border-bottom: 1px solid rgba(0, 255, 140, 0.3);
-}
-
-.blog-date {
-    color: #00D9FF;
-    font-size: 0.85rem;
-}
-
-.blog-body {
-    padding: 2rem;
-}
-
-.blog-card h3 {
-    color: #00FF8C;
-    margin-bottom: 1rem;
-    font-size: 1.3rem;
-}
-
-.blog-card p {
-    color: #aaa;
-    line-height: 1.6;
-    margin-bottom: 1.5rem;
-}
-
-.blog-tags {
-    display: flex;
-    gap: 0.5rem;
-    flex-wrap: wrap;
-    margin-bottom: 1.5rem;
-}
-
-.blog-tag {
-    background: rgba(0, 255, 140, 0.1);
-    color: #00FF8C;
-    padding: 0.3rem 0.8rem;
-    border-radius: 15px;
-    font-size: 0.8rem;
-    border: 1px solid rgba(0, 255, 140, 0.3);
-}
-
 .contact-container {
     max-width: 800px;
     margin: 3rem auto 0;
@@ -955,12 +909,13 @@ h2::after {
     border-radius: 10px;
     padding: 2rem;
     text-align: center;
-    transition: all 0.3s;
+    transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
 }
 
 .contact-item:hover {
     transform: translateY(-5px);
     box-shadow: 0 0 30px rgba(0, 255, 140, 0.3);
+    border-color: #00FF8C;
     will-change: transform;
 }
 
@@ -979,6 +934,8 @@ h2::after {
     color: #00D9FF;
     text-decoration: none;
     word-break: break-all;
+    font-size: 0.95rem;
+    transition: color 0.25s ease;
 }
 
 .contact-item a:hover {
@@ -1012,7 +969,7 @@ h2::after {
     padding: 0.8rem;
     color: #fff;
     font-family: 'Courier New', monospace;
-    transition: all 0.3s;
+    transition: border-color 0.25s ease, box-shadow 0.25s ease;
 }
 
 .form-group input:focus,
@@ -1037,17 +994,21 @@ h2::after {
     font-family: 'Courier New', monospace;
     font-weight: bold;
     cursor: pointer;
-    transition: all 0.3s;
+    transition: background-color 0.25s ease, color 0.25s ease, box-shadow 0.25s ease;
 }
 
 .submit-btn:hover {
     background: #00FF8C;
     color: #121212;
+    box-shadow: 0 0 15px rgba(0, 255, 140, 0.3);
 }
 
 .hamburger {
     display: none;
     flex-direction: column;
+    background: transparent;
+    border: none;
+    padding: 6px;
     cursor: pointer;
     gap: 5px;
 }
@@ -1056,7 +1017,7 @@ h2::after {
     width: 25px;
     height: 3px;
     background: #00FF8C;
-    transition: all 0.3s;
+    transition: transform 0.25s ease, opacity 0.25s ease, background-color 0.25s ease;
 }
 
 footer {
@@ -1072,15 +1033,27 @@ footer .signature {
     font-weight: bold;
 }
 
-.lazy-section {
-    opacity: 0;
-    transform: translateY(30px);
-    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+/* Sections visible by default */
+section {
+    opacity: 1;
 }
 
-.lazy-section.visible {
-    opacity: 1;
-    transform: translateY(0);
+@media (prefers-reduced-motion: reduce) {
+    html {
+        scroll-behavior: auto !important;
+    }
+
+    .boot-screen {
+        display: none !important;
+    }
+
+    .stat-item:hover,
+    .cert-card:hover,
+    .project-card:hover,
+    .skill-tag:hover,
+    .contact-item:hover {
+        transform: none !important;
+    }
 }
 
 @media (max-width: 768px) {
@@ -1194,4 +1167,4 @@ footer .signature {
     .cta-buttons {
         flex-direction: column;
     }
-}
+}

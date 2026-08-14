@@ -1,6 +1,6 @@
 /*
     File: animations.css
-    Purpose: animation keyframes used across the site
+    Purpose: animation keyframes and motion preferences
 */
 @keyframes fadeIn {
     from {
@@ -32,6 +32,7 @@
 @keyframes blink {
     50% {
         border-color: transparent;
+        opacity: 0.3;
     }
 }
 
@@ -43,7 +44,6 @@
 }
 
 @keyframes pulse {
-
     0%,
     100% {
         opacity: 1;
@@ -53,3 +53,23 @@
         opacity: 0.7;
     }
 }
+
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+    }
+
+    .fade-in,
+    .typing,
+    .ascii-art,
+    .boot-ready {
+        animation: none !important;
+        opacity: 1 !important;
+        transform: none !important;
+    }
+}
