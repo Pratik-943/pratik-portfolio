@@ -1,0 +1,510 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pratik Kumar Nayak | Cybersecurity & Incident Response Specialist</title>
+    <meta name="description"
+        content="Cybersecurity-focused MCA graduate with hands-on experience in threat analysis, incident response, and security tool development. Creator of Mini-EDR and ReconX.">
+    <meta name="author" content="Pratik Kumar Nayak">
+    <link rel="stylesheet" href="src/css/main.css">
+    <link rel="stylesheet" href="src/css/animations.css">
+</head>
+
+<body>
+
+    <!-- Terminal Boot Screen -->
+    <div id="bootScreen" class="boot-screen">
+        <div class="boot-content">
+            <div class="boot-header">
+                <pre class="ascii-art">
+██████╗ ██████╗  █████╗ ████████╗██╗██╗  ██╗
+██╔══██╗██╔══██╗██╔══██╗╚══██╔══╝██║██║ ██╔╝
+██████╔╝██████╔╝███████║   ██║   ██║█████╔╝
+██╔═══╝ ██╔══██╗██╔══██║   ██║   ██║██╔═██╗
+██║     ██║  ██║██║  ██║   ██║   ██║██║  ██╗
+╚═╝     ╚═╝  ╚═╝╚═╝  ╚═╝   ╚═╝   ╚═╝╚═╝  ╚═╝
+                </pre>
+            </div>
+            <div class="boot-terminal">
+                <p><span class="boot-prompt">[SYSTEM]</span> <span class="boot-text">Initializing secure shell...</span>
+                </p>
+                <p><span class="boot-prompt">[SCAN]</span> <span class="boot-text">Running threat scan</span> <span
+                        class="boot-dots"></span></p>
+                <p><span class="boot-prompt">[AUTH]</span> <span class="boot-text">Verifying credentials</span> <span
+                        class="boot-status boot-ok">[OK]</span></p>
+                <p><span class="boot-prompt">[LOAD]</span> <span class="boot-text">Mounting portfolio.sh</span> <span
+                        class="boot-status boot-ok">[OK]</span></p>
+                <p><span class="boot-prompt">[NET]</span> <span class="boot-text">Establishing secure connection</span>
+                    <span class="boot-dots"></span></p>
+                <p><span class="boot-prompt">[DONE]</span> <span class="boot-text">System ready</span> <span
+                        class="boot-status boot-ready">[READY]</span></p>
+            </div>
+            <div class="boot-progress">
+                <div class="boot-progress-bar"></div>
+            </div>
+            <p class="boot-footer">Press any key to continue...</p>
+        </div>
+    </div>
+
+    <nav>
+        <div class="nav-content">
+            <div class="logo">&gt;_pratik.sh</div>
+            <div class="hamburger" onclick="toggleMenu()">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+            <div class="nav-links" id="navLinks">
+                <a href="#about" onclick="closeMenu()">About</a>
+                <a href="#experience" onclick="closeMenu()">Experience</a>
+                <a href="#education" onclick="closeMenu()">Education</a>
+                <a href="#skills" onclick="closeMenu()">Skills</a>
+                <a href="#certifications" onclick="closeMenu()">Certifications</a>
+                <a href="#projects" onclick="closeMenu()">Projects</a>
+                <!-- Blog nav link disabled until blog posts are published. Uncomment when ready:
+                <a href="#blog" onclick="closeMenu()">Blog</a>
+                -->
+                <a href="#contact" onclick="closeMenu()">Contact</a>
+            </div>
+        </div>
+    </nav>
+
+    <section class="hero">
+        <div class="hero-content fade-in">
+            <div class="tag">// Cybersecurity &amp; Incident Response Specialist</div>
+            <h1>PRATIK KUMAR NAYAK</h1>
+            <p class="subtitle">MCA Graduate | Threat Analysis | Security Tool Development</p>
+
+            <div class="terminal-window">
+                <div class="terminal-header">
+                    <div class="terminal-dot dot-red"></div>
+                    <div class="terminal-dot dot-yellow"></div>
+                    <div class="terminal-dot dot-green"></div>
+                </div>
+                <div class="terminal-text">
+                    <p><span class="prompt">$</span> <span class="command">whoami</span></p>
+                    <p class="output">MCA graduate with hands-on experience in:</p>
+                    <p class="output"><span class="prompt">&gt;</span> Threat Analysis &amp; Incident Response</p>
+                    <p class="output"><span class="prompt">&gt;</span> Security Tool Development</p>
+                    <p class="output"><span class="prompt">&gt;</span> SOC &amp; VAPT</p>
+                    <br>
+                    <p><span class="prompt">$</span> <span class="command">cat contact.txt</span></p>
+                    <p class="output">Email: <a href="mailto:pratiknayak943@gmail.com"
+                            class="link">pratiknayak943@gmail.com</a></p>
+                    <p class="output">GitHub: <a href="https://github.com/Pratik-943" target="_blank"
+                            class="link">github.com/Pratik-943</a></p>
+                    <br>
+                    <p><span class="prompt">$</span> <span class="output">_</span><span
+                            style="animation: blink 1s infinite;">|</span></p>
+                </div>
+            </div>
+
+            <div class="cta-buttons">
+                <a href="src/assets/Resume.pdf" class="btn btn-primary" target="_blank">Download Resume</a>
+                <a href="#projects" class="btn btn-secondary">View Projects</a>
+                <a href="#contact" class="btn btn-secondary">Get In Touch</a>
+            </div>
+        </div>
+    </section>
+
+    <section id="about">
+        <h2>About Me</h2>
+        <div class="about-container">
+            <div class="about-content fade-in">
+                <div class="about-text">
+                    <p class="about-intro">
+                        Hi! I'm <span class="highlight">Pratik Kumar Nayak</span>, an MCA graduate with
+                        hands-on cybersecurity experience.
+                    </p>
+                    <p>
+                        I've developed security tools like <span class="highlight">Mini-EDR</span> (threat
+                        detection powered by AI) and <span class="highlight">ReconX</span> (network
+                        reconnaissance with visual mapping). I completed internships at TCS (IAM &amp;
+                        incident analysis) and Deloitte (threat evaluation), and I'm currently building
+                        hands-on cloud security experience through an AWS Cloud Computing internship.
+                    </p>
+                    <p>
+                        Skilled in threat analysis, incident response, security tool development, and Linux
+                        administration. Passionate about defensive security and building systems that
+                        protect against real threats.
+                    </p>
+                    <div class="about-stats">
+                        <div class="stat-item">
+                            <div class="stat-number">3+</div>
+                            <div class="stat-label">Security Tools Built</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-number">3</div>
+                            <div class="stat-label">Internships Completed</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-number">4+</div>
+                            <div class="stat-label">Certifications</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="about-image">
+                    <div class="code-window">
+                        <div class="code-header">
+                            <div class="code-dot dot-red"></div>
+                            <div class="code-dot dot-yellow"></div>
+                            <div class="code-dot dot-green"></div>
+                            <span class="code-title">about.js</span>
+                        </div>
+                        <div class="code-content">
+                            <pre><code><span class="code-keyword">const</span> <span class="code-variable">pratik</span> = {
+  <span class="code-property">name</span>: <span class="code-string">"Pratik Kumar Nayak"</span>,
+  <span class="code-property">role</span>: <span class="code-string">"Cybersecurity Analyst"</span>,
+  <span class="code-property">location</span>: <span class="code-string">"Bhubaneswar, Odisha, India"</span>,
+  <span class="code-property">focus</span>: [
+    <span class="code-string">"Threat Analysis"</span>,
+    <span class="code-string">"Incident Response"</span>,
+    <span class="code-string">"Security Tool Development"</span>,
+    <span class="code-string">"Cloud Security"</span>
+  ],
+  <span class="code-property">lookingFor</span>: [
+    <span class="code-string">"SOC Analyst roles"</span>,
+    <span class="code-string">"VAPT"</span>,
+    <span class="code-string">"Incident Response positions"</span>
+  ],
+  <span class="code-property">status</span>: <span class="code-string">"Open to opportunities"</span>
+};</code></pre>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="experience">
+        <h2>Work Experience</h2>
+        <div class="timeline">
+            <div class="timeline-item fade-in">
+                <div class="timeline-dot"></div>
+                <div class="timeline-content">
+                    <h3>AWS Cloud Computing Intern</h3>
+                    <div class="timeline-date">CUTM / CyberDojo &middot; Ongoing</div>
+                    <p class="timeline-description">
+                        Hands-on cloud internship covering IAM, VPC networking, Lambda, S3, DynamoDB,
+                        API Gateway, and RDS &mdash; building and documenting real AWS deployments.
+                    </p>
+                </div>
+            </div>
+
+            <div class="timeline-item fade-in" style="animation-delay: 0.1s;">
+                <div class="timeline-dot"></div>
+                <div class="timeline-content">
+                    <h3>Cybersecurity Analyst Intern</h3>
+                    <div class="timeline-date">TCS (Tata Consultancy Services) &middot; Forage Virtual Internship
+                        &middot; 2024</div>
+                    <p class="timeline-description">
+                        Gained hands-on experience in enterprise cybersecurity workflows, IAM strategy
+                        design, and access control risk assessment.
+                    </p>
+                </div>
+            </div>
+
+            <div class="timeline-item fade-in" style="animation-delay: 0.2s;">
+                <div class="timeline-dot"></div>
+                <div class="timeline-content">
+                    <h3>Cybersecurity Intern</h3>
+                    <div class="timeline-date">Deloitte &middot; Forage Virtual Job Simulation</div>
+                    <p class="timeline-description">
+                        Completed a cybersecurity job simulation involving threat analysis and security
+                        risk evaluation, with exposure to enterprise cybersecurity processes.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="education">
+        <h2>Education</h2>
+        <div class="timeline">
+            <div class="timeline-item fade-in">
+                <div class="timeline-dot"></div>
+                <div class="timeline-content">
+                    <h3>Master of Computer Applications</h3>
+                    <div class="timeline-date">Centurion University &middot; 2024 - 2026</div>
+                    <p class="timeline-description">
+                        Specializing in Cybersecurity and Cloud Computing, with advanced coursework in
+                        programming, software development, and IT systems.
+                    </p>
+                </div>
+            </div>
+
+            <div class="timeline-item fade-in" style="animation-delay: 0.1s;">
+                <div class="timeline-dot"></div>
+                <div class="timeline-content">
+                    <h3>Bachelor of Computer Applications</h3>
+                    <div class="timeline-date">Vikram Dev University &middot; 2020 - 2023</div>
+                    <p class="timeline-description">
+                        Core computing concepts, programming, databases, and networking fundamentals.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="skills">
+        <h2>Skills &amp; Expertise</h2>
+        <p class="section-intro">Technical skills and tools developed through education and hands-on projects in
+            cybersecurity and full-stack development.</p>
+        <div class="skills-grid">
+            <div class="skill-category fade-in">
+                <h3>Programming &amp; Development</h3>
+                <div class="skill-tags">
+                    <span class="skill-tag">Java (Swing, JDBC)</span>
+                    <span class="skill-tag">Python</span>
+                    <span class="skill-tag">ASP.NET (MVC)</span>
+                    <span class="skill-tag">SQL (MySQL, SQL Server)</span>
+                    <span class="skill-tag">C</span>
+                    <span class="skill-tag">JavaScript (ES6+)</span>
+                </div>
+            </div>
+
+            <div class="skill-category fade-in" style="animation-delay: 0.1s;">
+                <h3>Cybersecurity &amp; Systems</h3>
+                <div class="skill-tags">
+                    <span class="skill-tag">Linux &amp; Windows OS</span>
+                    <span class="skill-tag">Networking &amp; TCP/IP</span>
+                    <span class="skill-tag">Threat Analysis</span>
+                    <span class="skill-tag">Incident Response</span>
+                    <span class="skill-tag">System Monitoring</span>
+                    <span class="skill-tag">Virtualization (VMware)</span>
+                </div>
+            </div>
+
+            <div class="skill-category fade-in" style="animation-delay: 0.2s;">
+                <h3>Tools &amp; Platforms</h3>
+                <div class="skill-tags">
+                    <span class="skill-tag">VS Code, Eclipse</span>
+                    <span class="skill-tag">Git &amp; GitHub</span>
+                    <span class="skill-tag">Kali Linux</span>
+                    <span class="skill-tag">Cisco Packet Tracer</span>
+                    <span class="skill-tag">AWS</span>
+                    <span class="skill-tag">YARA Rules</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="certifications">
+        <h2>Certifications &amp; Awards</h2>
+        <div class="certifications-grid">
+
+            <div class="cert-card fade-in" style="animation-delay: 0.1s;">
+                <div class="cert-icon">🔐</div>
+                <div class="cert-badge">
+                    <div class="cert-badge-inner">
+                        <div class="cert-title">Cybersecurity</div>
+                        <div class="cert-issuer">NPTEL</div>
+                    </div>
+                </div>
+                <h3>Cyber Security</h3>
+                <p class="cert-description">
+                    Foundational cybersecurity certification covering threat analysis and security
+                    practices.
+                </p>
+                <div class="cert-footer">
+                    <span class="cert-date">NPTEL</span>
+                    <!-- TODO: replace with actual certificate URL -->
+                    <a href="#" class="cert-link">Verify &rarr;</a>
+                </div>
+            </div>
+
+            <div class="cert-card fade-in" style="animation-delay: 0.2s;">
+                <div class="cert-icon">🛡️</div>
+                <div class="cert-badge">
+                    <div class="cert-badge-inner">
+                        <div class="cert-title">Cybersecurity Analyst</div>
+                        <div class="cert-issuer">TCS &middot; Forage</div>
+                    </div>
+                </div>
+                <h3>TCS Cybersecurity Analyst</h3>
+                <p class="cert-description">
+                    Virtual internship on IAM fundamentals, access control risk assessment, and incident
+                    analysis.
+                </p>
+                <div class="cert-footer">
+                    <span class="cert-date">2024</span>
+                    <a href="https://forage.com" target="_blank" class="cert-link">View on Forage &rarr;</a>
+                </div>
+            </div>
+
+            <div class="cert-card fade-in" style="animation-delay: 0.3s;">
+                <div class="cert-icon">🧭</div>
+                <div class="cert-badge">
+                    <div class="cert-badge-inner">
+                        <div class="cert-title">Cybersecurity</div>
+                        <div class="cert-issuer">Deloitte &middot; Forage</div>
+                    </div>
+                </div>
+                <h3>Deloitte Cybersecurity</h3>
+                <p class="cert-description">
+                    Virtual internship on threat analysis and security risk evaluation.
+                </p>
+                <div class="cert-footer">
+                    <span class="cert-date">Forage</span>
+                    <a href="https://forage.com" target="_blank" class="cert-link">View on Forage &rarr;</a>
+                </div>
+            </div>
+
+            <div class="cert-card fade-in">
+                <div class="cert-icon">🏅</div>
+                <div class="cert-badge">
+                    <div class="cert-badge-inner">
+                        <div class="cert-title">Programming &amp; DSA</div>
+                        <div class="cert-issuer">GeeksforGeeks</div>
+                    </div>
+                </div>
+                <h3>Java Programming &amp; DSA</h3>
+                <p class="cert-description">
+                    GeeksforGeeks certification covering Java fundamentals and data structures &amp;
+                    algorithms.
+                </p>
+                <div class="cert-footer">
+                    <span class="cert-date">GfG</span>
+                    <!-- TODO: replace with actual certificate URL -->
+                    <a href="#" class="cert-link">Verify &rarr;</a>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <section id="projects">
+        <h2>Featured Projects</h2>
+        <p class="section-intro">Security-focused applications and threat detection tools demonstrating expertise in
+            incident response, reconnaissance, and threat analysis.</p>
+        <div class="projects-grid">
+            <div class="project-card fade-in">
+                <h3>🛡️ Mini-EDR</h3>
+                <p>Lightweight Endpoint Detection &amp; Response tool with AI-powered threat classification. Performs
+                    file monitoring, behavioral analysis, and automated threat detection using machine learning.</p>
+                <div class="blog-tags">
+                    <span class="blog-tag">Python</span>
+                    <span class="blog-tag">FastAPI</span>
+                    <span class="blog-tag">YARA</span>
+                    <span class="blog-tag">Ollama</span>
+                </div>
+                <a href="https://github.com/Pratik-943" target="_blank" class="project-link">View Code &rarr;</a>
+            </div>
+
+            <div class="project-card fade-in" style="animation-delay: 0.1s;">
+                <h3>🕵️ ReconX</h3>
+                <p>Advanced reconnaissance tool with visual network mapping. Integrates with Kali Linux tools for
+                    comprehensive security assessment and vulnerability discovery.</p>
+                <div class="blog-tags">
+                    <span class="blog-tag">D3.js</span>
+                    <span class="blog-tag">SQLite</span>
+                    <span class="blog-tag">Kali Linux</span>
+                    <span class="blog-tag">Network Recon</span>
+                </div>
+                <a href="https://github.com/Pratik-943" target="_blank" class="project-link">View Code &rarr;</a>
+            </div>
+
+            <div class="project-card fade-in" style="animation-delay: 0.2s;">
+                <h3>🚨 Cyber Threat Alert Portal</h3>
+                <p>Location-aware threat alert system with real-time notifications. Provides automated threat
+                    intelligence distribution and user-subscription-based alert management.</p>
+                <div class="blog-tags">
+                    <span class="blog-tag">Java</span>
+                    <span class="blog-tag">Spring Boot</span>
+                    <span class="blog-tag">MySQL</span>
+                    <span class="blog-tag">Gmail API</span>
+                </div>
+                <a href="https://github.com/Pratik-943" target="_blank" class="project-link">View Code &rarr;</a>
+            </div>
+        </div>
+    </section>
+
+    <!--
+        Blog section — disabled for now.
+        No blog posts published yet. Once original write-ups are ready,
+        uncomment this section (and the matching nav link above) and
+        replace the placeholder cards below with real posts + links.
+
+    <section id="blog">
+        <h2>Latest Blog Posts</h2>
+        <div class="blog-grid">
+            <div class="blog-card fade-in">
+                <div class="blog-header">
+                    <div class="blog-date">Coming soon</div>
+                </div>
+                <div class="blog-body">
+                    <h3>Post title goes here</h3>
+                    <div class="blog-tags">
+                        <span class="blog-tag">Cybersecurity</span>
+                        <span class="blog-tag">Write-up</span>
+                    </div>
+                    <p>Short summary of the post goes here...</p>
+                    <a href="#" class="project-link">Read More &rarr;</a>
+                </div>
+            </div>
+        </div>
+    </section>
+    -->
+
+    <section id="contact">
+        <h2>Get In Touch</h2>
+        <p class="section-intro">Have a security opportunity? Let's connect and discuss how I can help.</p>
+        <div class="contact-container">
+            <div class="contact-grid">
+                <div class="contact-item fade-in">
+                    <div class="contact-icon">📧</div>
+                    <h3>Email</h3>
+                    <a href="mailto:pratiknayak943@gmail.com">pratiknayak943@gmail.com</a>
+                </div>
+
+                <!-- <div class="contact-item fade-in" style="animation-delay: 0.1s;">
+                    <div class="contact-icon">📱</div>
+                    <h3>Phone</h3>
+                    <a href="tel:+918018577793">+91 80185 77793</a>
+                </div> -->
+
+                <div class="contact-item fade-in" style="animation-delay: 0.2s;">
+                    <div class="contact-icon">💼</div>
+                    <h3>GitHub</h3>
+                    <a href="https://github.com/Pratik-943" target="_blank">github.com/Pratik-943</a>
+                </div>
+
+                <div class="contact-item fade-in" style="animation-delay: 0.3s;">
+                    <div class="contact-icon">🔗</div>
+                    <h3>LinkedIn</h3>
+                    <a href="https://linkedin.com/in/pratik-kumar-nayak"
+                        target="_blank">linkedin.com/in/pratik-kumar-nayak</a>
+                </div>
+            </div>
+
+            <div class="contact-form fade-in">
+                <form>
+                    <div class="form-group">
+                        <label>$ name --input</label>
+                        <input type="text" placeholder="Your name" required>
+                    </div>
+                    <div class="form-group">
+                        <label>$ email --input</label>
+                        <input type="email" placeholder="you@example.com" required>
+                    </div>
+                    <div class="form-group">
+                        <label>$ message --input</label>
+                        <textarea placeholder="Your message here..." required></textarea>
+                    </div>
+                    <button type="submit" class="submit-btn">Send Message</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <p>$ &copy; 2026 <span class="signature">Pratik Kumar Nayak</span>. Open to opportunities.</p>
+        <p style="margin-top: 0.5rem; font-size: 0.9rem;">Made with HTML, CSS &amp; JavaScript</p>
+    </footer>
+
+    <script src="src/js/main.js"></script>
+</body>
+
+</html>
