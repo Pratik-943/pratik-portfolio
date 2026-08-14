@@ -24,8 +24,9 @@ document.addEventListener('DOMContentLoaded', () => {
         return;
     }
 
-    // Auto-dismiss after ~5 seconds total duration
-    const autoTimer = setTimeout(dismissBoot, 5000);
+    // Auto-dismiss: ~3.5s on mobile screens up to 767px, ~5s on desktop/tablet
+    const isMobile = window.innerWidth <= 767;
+    const autoTimer = setTimeout(dismissBoot, isMobile ? 3500 : 5000);
 
     // Dismiss with any keypress or click
     const onDismiss = () => {
@@ -37,7 +38,7 @@ document.addEventListener('DOMContentLoaded', () => {
     bootScreen.addEventListener('click', onDismiss, { once: true });
 });
 
-// Mobile Navigation Toggle with ARIA State Management
+// Mobile Navigation Toggle with ARIA State Management and Background Scroll Lock
 function toggleMenu() {
     const navLinks = document.getElementById('navLinks');
     const navToggle = document.getElementById('navToggle');
@@ -47,6 +48,11 @@ function toggleMenu() {
     if (navToggle) {
         navToggle.setAttribute('aria-expanded', isActive ? 'true' : 'false');
     }
+    if (isActive) {
+        document.body.classList.add('menu-open');
+    } else {
+        document.body.classList.remove('menu-open');
+    }
 }
 
 function closeMenu() {
@@ -55,18 +61,29 @@ function closeMenu() {
     if (!navLinks) return;
 
     navLinks.classList.remove('active');
+    document.body.classList.remove('menu-open');
     if (navToggle) {
         navToggle.setAttribute('aria-expanded', 'false');
     }
 }
 
-// Close mobile nav on escape or click outside
+// Connect mobile navigation toggle button
+document.addEventListener('DOMContentLoaded', () => {
+    const navToggle = document.getElementById('navToggle');
+
+    if (navToggle) {
+        navToggle.addEventListener('click', toggleMenu);
+    }
+});
+
+// Close mobile nav on Escape key
 document.addEventListener('keydown', (e) => {
     if (e.key === 'Escape') {
         closeMenu();
     }
 });
 
+// Close mobile nav on click outside
 document.addEventListener('click', (e) => {
     const navLinks = document.getElementById('navLinks');
     const navToggle = document.getElementById('navToggle');
@@ -76,6 +93,13 @@ document.addEventListener('click', (e) => {
         }
     }
 });
+
+// Reset menu state on viewport resize above mobile breakpoint
+window.addEventListener('resize', () => {
+    if (window.innerWidth > 768) {
+        closeMenu();
+    }
+}, { passive: true });
 
 // Smooth Scrolling with Reduced-Motion Awareness
 document.addEventListener('DOMContentLoaded', () => {
@@ -100,4 +124,5 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 });
+
 

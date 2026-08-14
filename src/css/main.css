@@ -55,12 +55,14 @@ textarea:focus-visible,
 
 .ascii-art {
     color: #00FF8C;
-    font-size: 0.6rem;
-    line-height: 1.2;
+    font-size: clamp(0.32rem, 0.7vw, 0.44rem);
+    line-height: 1.15;
     text-align: center;
     font-family: 'Courier New', monospace;
     text-shadow: 0 0 10px rgba(0, 255, 140, 0.5);
     animation: glitch 3s infinite;
+    overflow-x: hidden;
+    max-width: 100%;
 }
 
 .boot-terminal {
@@ -1006,26 +1008,35 @@ h2::after {
 .hamburger {
     display: none;
     flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-width: 44px;
+    min-height: 44px;
+    width: 44px;
+    height: 44px;
     background: transparent;
     border: none;
-    padding: 6px;
+    padding: 8px;
     cursor: pointer;
     gap: 5px;
+    border-radius: 4px;
 }
 
 .hamburger span {
-    width: 25px;
+    width: 26px;
     height: 3px;
     background: #00FF8C;
+    border-radius: 2px;
     transition: transform 0.25s ease, opacity 0.25s ease, background-color 0.25s ease;
 }
 
 footer {
     text-align: center;
-    padding: 2rem;
+    padding: 2.5rem 1.5rem;
     background: rgba(26, 26, 26, 0.9);
     border-top: 1px solid #333;
     color: #aaa;
+    font-size: 0.95rem;
 }
 
 footer .signature {
@@ -1033,11 +1044,17 @@ footer .signature {
     font-weight: bold;
 }
 
+/* Prevent background scroll when mobile navigation is open */
+body.menu-open {
+    overflow: hidden;
+}
+
 /* Sections visible by default */
 section {
     opacity: 1;
 }
 
+/* Reduced Motion */
 @media (prefers-reduced-motion: reduce) {
     html {
         scroll-behavior: auto !important;
@@ -1056,29 +1073,61 @@ section {
     }
 }
 
-@media (max-width: 768px) {
-    h1 {
-        font-size: 2.2rem;
+/* Tablet Landscape (769px to 1024px) */
+@media (max-width: 1024px) {
+    section {
+        padding: 4.5rem 1.75rem;
     }
 
-    h2 {
-        font-size: 2rem;
+    .about-content {
+        grid-template-columns: 1fr;
+        gap: 2.5rem;
     }
 
-    .boot-content {
-        padding: 1rem;
+    .about-image {
+        position: static;
+        order: -1;
+        max-width: 700px;
+        margin: 0 auto;
+        width: 100%;
+    }
+
+    .skills-grid {
+        grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+        gap: 1.75rem;
+    }
+
+    .projects-grid {
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        gap: 1.75rem;
+    }
+
+    .certifications-grid {
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        gap: 1.75rem;
     }
 
     .ascii-art {
         font-size: 0.32rem;
     }
+}
 
-    .boot-terminal p {
-        font-size: 0.85rem;
+/* Tablet Portrait & Mobile (<= 768px) */
+@media (max-width: 768px) {
+    body {
+        overflow-x: hidden;
     }
 
-    .boot-footer {
-        font-size: 0.8rem;
+    section {
+        padding: 3.5rem 1.25rem;
+    }
+
+    nav {
+        padding: 0.85rem 1.25rem;
+    }
+
+    .nav-content {
+        width: 100%;
     }
 
     .hamburger {
@@ -1088,25 +1137,107 @@ section {
     .nav-links {
         position: fixed;
         top: 60px;
-        left: -100%;
+        right: -100%;
+        left: auto;
         width: 100%;
-        background: rgba(26, 26, 26, 0.98);
+        height: calc(100vh - 60px);
+        background: rgba(18, 18, 18, 0.98);
+        backdrop-filter: blur(12px);
+        -webkit-backdrop-filter: blur(12px);
         flex-direction: column;
-        padding: 2rem;
-        transition: left 0.3s ease;
+        padding: 2rem 1.5rem;
+        transition: right 0.3s ease;
         border-bottom: 1px solid #333;
+        overflow-y: auto;
+        -webkit-overflow-scrolling: touch;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.8);
+        z-index: 999;
     }
 
     .nav-links.active {
-        left: 0;
+        right: 0;
+        left: auto;
     }
 
     .nav-links a {
-        margin: 0.5rem 0;
-        padding: 1rem;
-        border-bottom: 1px solid rgba(0, 255, 140, 0.1);
+        margin: 0;
+        padding: 1rem 0.5rem;
+        font-size: 1.1rem;
+        border-bottom: 1px solid rgba(0, 255, 140, 0.15);
+        min-height: 48px;
+        display: flex;
+        align-items: center;
     }
 
+    .hero {
+        padding: 1.5rem 1rem;
+        padding-top: 100px;
+        min-height: auto;
+    }
+
+    .tag {
+        margin-bottom: 1.5rem;
+        padding: 0.45rem 0.85rem;
+        font-size: 0.82rem;
+        line-height: 1.4;
+    }
+
+    .subtitle {
+        font-size: 1.05rem;
+        margin-bottom: 2rem;
+    }
+
+    .terminal-window {
+        padding: 1.35rem 1rem;
+        margin: 1.5rem auto;
+        width: 100%;
+    }
+
+    .terminal-text {
+        font-size: 0.88rem;
+    }
+
+    .cta-buttons {
+        flex-direction: column;
+        width: 100%;
+        gap: 0.85rem;
+        margin-top: 2rem;
+    }
+
+    .cta-buttons .btn {
+        width: 100%;
+        text-align: center;
+        display: block;
+        padding: 0.95rem 1.2rem;
+        min-height: 44px;
+    }
+
+    /* Mobile Boot Screen (scaled and ~3.5s timing) */
+    .boot-content {
+        padding: 1.25rem 0.75rem;
+        width: 95%;
+    }
+
+    .ascii-art {
+        font-size: clamp(0.19rem, 1.15vw, 0.25rem);
+    }
+
+    .boot-terminal p {
+        font-size: clamp(0.78rem, 2.3vw, 0.88rem);
+        margin-bottom: 0.55rem;
+    }
+
+    .boot-terminal p:nth-child(1) { animation-delay: 0.2s; }
+    .boot-terminal p:nth-child(2) { animation-delay: 0.6s; }
+    .boot-terminal p:nth-child(3) { animation-delay: 1.0s; }
+    .boot-terminal p:nth-child(4) { animation-delay: 1.4s; }
+    .boot-terminal p:nth-child(5) { animation-delay: 1.8s; }
+    .boot-terminal p:nth-child(6) { animation-delay: 2.2s; }
+    .boot-progress { animation: bootLine 0.25s forwards 2.5s; margin-bottom: 1.25rem; }
+    .boot-progress-bar { animation: progress 1.2s ease-out forwards 2.5s; }
+    .boot-footer { font-size: 0.82rem; animation: bootLine 0.25s forwards 2.8s, blink 1s infinite 3.0s; }
+
+    /* About Section Mobile */
     .about-content {
         grid-template-columns: 1fr;
         gap: 2rem;
@@ -1115,6 +1246,7 @@ section {
     .about-image {
         position: static;
         order: -1;
+        width: 100%;
     }
 
     .about-stats {
@@ -1124,47 +1256,190 @@ section {
 
     .code-content {
         font-size: 0.8rem;
+        padding: 1rem;
     }
 
+    /* One-Column Sections */
+    .skills-grid,
+    .projects-grid,
     .certifications-grid {
         grid-template-columns: 1fr;
         gap: 1.5rem;
     }
 
+    .skill-category,
+    .project-card,
     .cert-card {
-        padding: 1.5rem;
+        padding: 1.5rem 1.25rem;
     }
 
-    .cert-icon {
-        font-size: 2.5rem;
+    .project-link {
+        display: inline-block;
+        padding: 0.5rem 0;
+        min-height: 44px;
+        display: flex;
+        align-items: center;
     }
 
+    /* Left-Aligned Timeline (no alternating on mobile) */
     .timeline::before {
-        left: 0;
-    }
-
-    .timeline-item:nth-child(odd),
-    .timeline-item:nth-child(even) {
-        padding-left: 2rem;
-        padding-right: 0;
-        text-align: left;
-    }
-
-    .timeline-item:nth-child(odd) .timeline-content {
-        margin-right: 0;
-        margin-left: 0;
-    }
-
-    .timeline-item:nth-child(even) .timeline-content {
-        margin-left: 0;
+        left: 14px;
+        transform: none;
     }
 
     .timeline-dot {
-        left: 0;
+        left: 14px;
         transform: translateX(-50%);
+        width: 16px;
+        height: 16px;
     }
 
-    .cta-buttons {
-        flex-direction: column;
+    .timeline-item,
+    .timeline-item:nth-child(odd),
+    .timeline-item:nth-child(even) {
+        padding-left: 36px;
+        padding-right: 0;
+        text-align: left;
+        margin-bottom: 2rem;
     }
-}
+
+    .timeline-item:nth-child(odd) .timeline-content,
+    .timeline-item:nth-child(even) .timeline-content {
+        margin-left: 0;
+        margin-right: 0;
+        padding: 1.35rem 1.15rem;
+    }
+
+    /* Contact Section & Form */
+    .contact-container {
+        width: 100%;
+        margin-top: 2rem;
+    }
+
+    .contact-grid {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+        margin-bottom: 2rem;
+    }
+
+    .contact-item {
+        padding: 1.5rem 1rem;
+    }
+
+    .contact-form {
+        padding: 1.5rem 1rem;
+    }
+
+    .form-group input,
+    .form-group textarea {
+        font-size: 16px;
+        padding: 0.8rem;
+    }
+
+    .submit-btn {
+        min-height: 48px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+}
+
+/* Large Mobile (480px) */
+@media (max-width: 480px) {
+    h1 {
+        font-size: clamp(1.8rem, 6.8vw, 2.2rem);
+    }
+
+    .stat-number {
+        font-size: 1.9rem;
+    }
+
+    .about-text p {
+        font-size: 0.95rem;
+    }
+}
+
+/* Small Mobile (390px and 360px) */
+@media (max-width: 390px) {
+    section {
+        padding: 2.75rem 0.85rem;
+    }
+
+    nav {
+        padding: 0.75rem 0.85rem;
+    }
+
+    .boot-content {
+        padding: 1rem 0.5rem;
+    }
+
+    .ascii-art {
+        font-size: 0.17rem;
+        letter-spacing: -0.2px;
+        line-height: 1.12;
+    }
+
+    .boot-terminal p {
+        font-size: 0.75rem;
+    }
+
+    .boot-prompt {
+        margin-right: 0.3rem;
+    }
+
+    .terminal-window {
+        padding: 1rem 0.75rem;
+    }
+
+    .terminal-text {
+        font-size: 0.8rem;
+    }
+
+    .terminal-dot {
+        width: 10px;
+        height: 10px;
+    }
+
+    .stat-item {
+        padding: 1.25rem 0.75rem;
+    }
+
+    .stat-number {
+        font-size: 1.7rem;
+    }
+
+    .code-content {
+        padding: 0.75rem 0.5rem;
+        font-size: 0.72rem;
+    }
+
+    .skill-category,
+    .project-card,
+    .cert-card,
+    .contact-item,
+    .contact-form {
+        padding: 1.25rem 0.85rem;
+    }
+
+    .timeline-item,
+    .timeline-item:nth-child(odd),
+    .timeline-item:nth-child(even) {
+        padding-left: 30px;
+    }
+
+    .timeline::before {
+        left: 10px;
+    }
+
+    .timeline-dot {
+        left: 10px;
+        width: 14px;
+        height: 14px;
+    }
+
+    .timeline-item:nth-child(odd) .timeline-content,
+    .timeline-item:nth-child(even) .timeline-content {
+        padding: 1.15rem 0.85rem;
+    }
+}
+
