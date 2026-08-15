@@ -2,7 +2,9 @@
     File: main.css
     Purpose: main stylesheet for Pratik Kumar Nayak's portfolio
 */
-* {
+*,
+*::before,
+*::after {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
@@ -1344,29 +1346,348 @@ section {
     }
 }
 
-/* Large Mobile (480px) */
+/* Mobile Devices (<= 480px, including 360px, 390px, 432px, 480px) */
 @media (max-width: 480px) {
-    h1 {
-        font-size: clamp(1.8rem, 6.8vw, 2.2rem);
+    /* 1. Consistent Page Gutters (~16px side padding) */
+    section {
+        padding: 3rem 16px;
+        width: 100%;
+        max-width: 100%;
+        margin: 0 auto;
+        box-sizing: border-box;
     }
 
-    .stat-number {
-        font-size: 1.9rem;
+    nav {
+        padding: 0.85rem 16px;
+        width: 100%;
+        box-sizing: border-box;
+    }
+
+    .nav-content {
+        width: 100%;
+        max-width: 100%;
+    }
+
+    .hero {
+        padding: 1.5rem 16px;
+        padding-top: 90px;
+        width: 100%;
+        max-width: 100%;
+        min-height: auto;
+        box-sizing: border-box;
+    }
+
+    .hero-content {
+        width: 100%;
+        max-width: 100%;
+        margin: 0 auto;
+        text-align: center;
+    }
+
+    .tag {
+        max-width: 100%;
+        margin-bottom: 1.25rem;
+        padding: 0.45rem 0.85rem;
+        font-size: 0.82rem;
+        line-height: 1.4;
+        box-sizing: border-box;
+        word-break: break-word;
+    }
+
+    h1 {
+        font-size: clamp(1.75rem, 6.5vw, 2.2rem);
+        margin-bottom: 1rem;
+        word-break: break-word;
+    }
+
+    .subtitle {
+        font-size: 1.05rem;
+        margin-bottom: 1.75rem;
+        word-break: break-word;
+    }
+
+    .terminal-window {
+        width: 100%;
+        max-width: 100%;
+        margin: 1.5rem 0;
+        padding: 1.25rem 1rem;
+        box-sizing: border-box;
+        text-align: left;
+    }
+
+    .terminal-text {
+        font-size: 0.85rem;
+        word-break: break-word;
+        overflow-wrap: break-word;
+    }
+
+    .cta-buttons {
+        width: 100%;
+        max-width: 100%;
+        margin: 2rem 0 0 0;
+        padding: 0;
+        display: flex;
+        flex-direction: column;
+        gap: 0.85rem;
+        box-sizing: border-box;
+    }
+
+    .cta-buttons .btn {
+        width: 100%;
+        margin: 0;
+        text-align: center;
+        display: block;
+        padding: 0.95rem 1.2rem;
+        min-height: 44px;
+        box-sizing: border-box;
+    }
+
+    /* 2. Heading Alignment */
+    h2 {
+        font-size: 1.85rem;
+        margin-bottom: 1rem;
+        text-align: left;
+        display: inline-block;
+    }
+
+    .section-intro {
+        text-align: left;
+        margin-top: 1.25rem;
+        margin-bottom: 2rem;
+        width: 100%;
+        max-width: 100%;
+        line-height: 1.6;
+    }
+
+    /* 3. Normalized Card Alignment */
+    .about-container,
+    .skills-grid,
+    .certifications-grid,
+    .projects-grid,
+    .contact-container,
+    .contact-grid {
+        width: 100%;
+        max-width: 100%;
+        margin-left: 0;
+        margin-right: 0;
+        box-sizing: border-box;
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 1.25rem;
+    }
+
+    .about-content {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 2rem;
+        width: 100%;
+        max-width: 100%;
+        margin: 0;
+    }
+
+    .about-text {
+        width: 100%;
+        text-align: left;
     }
 
     .about-text p {
         font-size: 0.95rem;
+        line-height: 1.7;
+        text-align: left;
+        margin-bottom: 1.25rem;
+    }
+
+    .about-stats {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 1rem;
+        width: 100%;
+        max-width: 100%;
+        margin-top: 2rem;
+        margin-left: 0;
+        margin-right: 0;
+    }
+
+    .about-image {
+        position: static;
+        order: -1;
+        width: 100%;
+        max-width: 100%;
+        margin: 0;
+    }
+
+    .code-window {
+        width: 100%;
+        max-width: 100%;
+        margin: 0;
+        box-sizing: border-box;
+    }
+
+    .code-content {
+        padding: 1rem;
+        font-size: 0.78rem;
+    }
+
+    .stat-item,
+    .skill-category,
+    .cert-card,
+    .project-card,
+    .contact-item,
+    .contact-form {
+        width: 100%;
+        max-width: 100%;
+        margin-left: 0;
+        margin-right: 0;
+        padding: 1.35rem 1.15rem;
+        box-sizing: border-box;
+        text-align: left;
+    }
+
+    .stat-number {
+        font-size: 1.9rem;
+        text-align: center;
+    }
+
+    .stat-label {
+        text-align: center;
+    }
+
+    .cert-footer {
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    .project-link {
+        display: inline-block;
+        padding: 0.5rem 0;
+        min-height: 44px;
+        display: flex;
+        align-items: center;
+    }
+
+    .form-group {
+        width: 100%;
+        margin-bottom: 1.25rem;
+    }
+
+    .form-group label {
+        text-align: left;
+    }
+
+    .form-group input,
+    .form-group textarea {
+        width: 100%;
+        max-width: 100%;
+        box-sizing: border-box;
+        font-size: 16px;
+        padding: 0.8rem;
+    }
+
+    .submit-btn {
+        width: 100%;
+        min-height: 48px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        box-sizing: border-box;
+    }
+
+    /* 4. Mobile Timeline */
+    .timeline {
+        width: 100%;
+        max-width: 100%;
+        margin-top: 2rem;
+        position: relative;
+        padding: 0;
+        box-sizing: border-box;
+    }
+
+    .timeline::before {
+        left: 6px;
+        width: 2px;
+        height: 100%;
+        transform: none;
+        top: 0;
+    }
+
+    .timeline-dot {
+        left: 7px;
+        top: 1.5rem;
+        transform: translateX(-50%);
+        width: 14px;
+        height: 14px;
+        border: 2px solid #121212;
+        z-index: 2;
+    }
+
+    .timeline-item,
+    .timeline-item:nth-child(odd),
+    .timeline-item:nth-child(even) {
+        width: 100%;
+        max-width: 100%;
+        padding-left: 24px;
+        padding-right: 0;
+        margin-left: 0;
+        margin-right: 0;
+        margin-bottom: 1.5rem;
+        text-align: left;
+        box-sizing: border-box;
+    }
+
+    .timeline-content,
+    .timeline-item:nth-child(odd) .timeline-content,
+    .timeline-item:nth-child(even) .timeline-content {
+        width: 100%;
+        max-width: 100%;
+        margin-left: 0;
+        margin-right: 0;
+        padding: 1.35rem 1.15rem;
+        box-sizing: border-box;
+        text-align: left;
+    }
+
+    .timeline-content h3,
+    .timeline-date,
+    .timeline-description {
+        text-align: left;
+    }
+
+    /* 5. Footer Alignment */
+    footer {
+        padding: 2.5rem 16px;
+        width: 100%;
+        max-width: 100%;
+        box-sizing: border-box;
+        text-align: center;
+    }
+
+    footer p {
+        text-align: center;
+        word-break: break-word;
+        overflow-wrap: break-word;
+        max-width: 100%;
     }
 }
 
 /* Small Mobile (390px and 360px) */
 @media (max-width: 390px) {
     section {
-        padding: 2.75rem 0.85rem;
+        padding: 2.75rem 16px;
     }
 
     nav {
-        padding: 0.75rem 0.85rem;
+        padding: 0.75rem 16px;
+    }
+
+    .hero {
+        padding: 1.25rem 16px;
+        padding-top: 85px;
+    }
+
+    footer {
+        padding: 2rem 16px;
     }
 
     .boot-content {
@@ -1418,28 +1739,29 @@ section {
     .cert-card,
     .contact-item,
     .contact-form {
-        padding: 1.25rem 0.85rem;
+        padding: 1.25rem 1rem;
     }
 
     .timeline-item,
     .timeline-item:nth-child(odd),
     .timeline-item:nth-child(even) {
-        padding-left: 30px;
+        padding-left: 22px;
     }
 
     .timeline::before {
-        left: 10px;
+        left: 5px;
     }
 
     .timeline-dot {
-        left: 10px;
-        width: 14px;
-        height: 14px;
+        left: 6px;
+        width: 12px;
+        height: 12px;
     }
 
+    .timeline-content,
     .timeline-item:nth-child(odd) .timeline-content,
     .timeline-item:nth-child(even) .timeline-content {
-        padding: 1.15rem 0.85rem;
+        padding: 1.15rem 0.95rem;
     }
 }
 
